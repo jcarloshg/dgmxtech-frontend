@@ -5,7 +5,7 @@ import fs from 'fs'
 
 import { FilesRepository } from '../../domain/repository/FilesRepository';
 import { InternResponse, RESPONSE_NOT_FOUND } from '../../domain/utils/InternResponse';
-import { S3ClientInitialized } from './S3.config';
+import { S3ClientInitialized } from './config.S3';
 
 export class FilesRepositoryAWSS3 implements FilesRepository {
 
