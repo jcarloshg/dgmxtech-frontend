@@ -1,3 +1,0 @@
-// application
-// infrastructure
-// domain
