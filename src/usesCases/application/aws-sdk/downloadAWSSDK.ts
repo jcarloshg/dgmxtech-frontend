@@ -1,5 +1,5 @@
 import { InternResponse } from "@/usesCases/domain/utils/InternResponse";
-import { FilesRepositoryAWSS3 } from "@/usesCases/infrastructure/FilesRepositoryAWSS3";
+import { FilesRepositoryAWSS3 } from "@/usesCases/infrastructure/aws-sdk/FilesRepositoryAWSS3";
 
 export const downloadAWSSDK = async (fileName: string): Promise<InternResponse<any>> => {
 

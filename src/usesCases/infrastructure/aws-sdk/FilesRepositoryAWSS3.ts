@@ -3,9 +3,9 @@ import { AWS_BUCKET_NAME } from '@/utils/KEYS_ENVIRONMENT';
 import { GetObjectCommand, PutObjectCommand, PutObjectCommandInput, PutObjectCommandOutput } from '@aws-sdk/client-s3';
 import fs from 'fs'
 
-import { FilesRepository } from '../domain/repository/FilesRepository';
-import { InternResponse, RESPONSE_NOT_FOUND } from '../domain/utils/InternResponse';
-import { S3ClientInitialized } from './aws-sdk/S3.config';
+import { FilesRepository } from '../../domain/repository/FilesRepository';
+import { InternResponse, RESPONSE_NOT_FOUND } from '../../domain/utils/InternResponse';
+import { S3ClientInitialized } from './S3.config';
 
 export class FilesRepositoryAWSS3 implements FilesRepository {
 
