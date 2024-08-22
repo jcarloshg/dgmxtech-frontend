@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+The awesome ToDo list! 😎
 
-First, run the development server:
+Hola 👋
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Este proyecto es parte de la prueba técnica para evaluar habilidades.
+- Contiene buenas practicas de desarrollo como Clean Code
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Overview 👀
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Tu como usuario podrás :
+- Create tareas
+- Listar tareas
+- Completar tareas
+- Eliminar tareas
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## How to run
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Necesitas las credenciales. Buscar en correo electrónico. [.env](.env.template)
+2. Copia las credenciales en el root del proyecto
+4. Ejecuta ```npm i``` para descargar las dependencias
+3. Ejecuta ```npm run dev``` para correr en local el proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- NOTE ⚠️  Checa el archivo [package.json](package.json) para ver otras configuraciones
 
-## Deploy on Vercel
+## Architecture
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Este es la arquitectura de las archivos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![alt text](/DOCS/image.png)
+
+### ToDo
+- Es la entidad que se manipula
+
+### Domain
+
+- Contiene las entidades del modelo del negocio
+    - [ToDo](src/usesCases/ToDo/domain/schema/ToDo.ts)
+- Contiene las reglas de negocio
+    - Para este caso ```title``` y ```description``` son necesarios para create un ToDo
+- Contiene las validaciones para que esto se cumpla
+    - [TodoTitleValueObject.ts](src/usesCases/utils/valuObjects/TodoTitleValueObject.ts)
+    - [TodoDescriptionValueObject.ts](src/usesCases/utils/valuObjects/TodoDescriptionValueObject.ts)
+    - [UUID.ValueObject.ts](src/usesCases/utils/valuObjects/UUID.ValueObject.ts)
+
+### Infrastructure
+- Contiene la implementaciones de la diferentes tecnologías empleadas.
+- En este caso se uso ```fetch``` para realizar las peticiones
+- Se utilizáramos servicios como ```firebase``` aquí se implementa las operaciones
+- Aquí se implantan las operaciones crud
+    - [createTodo.fetch.ts](src/usesCases/ToDo/infrastructure/fetch/createTodo.fetch.ts)
+    - [deletedByUUID.fetch.ts](src/usesCases/ToDo/infrastructure/fetch/deletedByUUID.fetch.ts)
+    - [getAllToDos.fetch.ts)](src/usesCases/ToDo/infrastructure/fetch/getAllToDos.fetch.ts)
+    - [toggleToDo.fetch.ts](src/usesCases/ToDo/infrastructure/fetch/toggleToDo.fetch.ts)
+
+### Application
+- Se hacen uso de la *infraestructura*
+- si quieres lanzar una request a AWS y a FireBase aquí se implantan estas operaciones ya definidas en la *infraestructura*
+
+
