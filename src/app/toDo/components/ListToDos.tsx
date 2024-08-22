@@ -3,39 +3,44 @@
 import { getAllToDo, GetAllToDoApplicationResponse } from "@/usesCases/ToDo/application/getAllToDo.application";
 import { useEffect, useState } from "react"
 import { ToDo } from "./ToDo";
+import { ToDo as ToDoModel } from "@/usesCases/ToDo/domain/schema/ToDo";
 
 interface Props {
-    className?: string
+    className?: string,
+    todoSelected?: ToDoModel | null,
+    selectTodo: (todo: ToDoModel) => void
+    isLoading: boolean,
+    getAllToDoResponse: GetAllToDoApplicationResponse,
 }
 
-export const ListToDos = ({ className }: Props) => {
+export const ListToDos = ({ className, todoSelected, isLoading, getAllToDoResponse, selectTodo }: Props) => {
 
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [getAllToDoResponse, setGetAllToDoResponse] = useState<GetAllToDoApplicationResponse | null>(null)
+    // const [isLoading, setIsLoading] = useState<boolean>(false)
+    // const [getAllToDoResponse, setGetAllToDoResponse] = useState<GetAllToDoApplicationResponse | null>(null)
 
 
-    const runGetAllToDo = async () => {
+    // const runGetAllToDo = async () => {
 
-        setIsLoading(true)
-        const response = await getAllToDo();
-        setIsLoading(false)
+    //     setIsLoading(true)
+    //     const response = await getAllToDo();
+    //     setIsLoading(false)
 
-        if (response.status !== "SUCCESS") return;
+    //     if (response.status !== "SUCCESS") return;
 
-        setGetAllToDoResponse(response.data)
+    //     setGetAllToDoResponse(response.data)
 
-    }
+    // }
 
-    useEffect(
-        () => {
+    // useEffect(
+    //     () => {
 
-            (
-                async () => {
-                    await runGetAllToDo()
-                }
-            )();
+    //         (
+    //             async () => {
+    //                 await runGetAllToDo()
+    //             }
+    //         )();
 
-        }, [])
+    //     }, [])
 
 
     return (
@@ -58,7 +63,16 @@ export const ListToDos = ({ className }: Props) => {
                 (
                     <div className="flex flex-col gap-4">
                         {
-                            getAllToDoResponse.toDos.map(todo => (<ToDo key={todo.uuid} todo={todo} />))
+                            getAllToDoResponse.toDos.map(
+                                todo => (
+                                    <ToDo
+                                        key={todo.uuid}
+                                        todo={todo}
+                                        isSelected={todo.uuid === todoSelected?.uuid}
+                                        wasClicked={() => selectTodo(todo)}
+                                    />
+                                )
+                            )
                         }
                     </div>
                 )

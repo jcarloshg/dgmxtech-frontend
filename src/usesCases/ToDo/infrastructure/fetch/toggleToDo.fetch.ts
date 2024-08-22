@@ -1,17 +1,18 @@
+import { ToggleToDoFetchResponse } from "../../application/toggleToDo.application";
 import { CustomResponse } from "@/usesCases/utils/schema/CustomResponse";
-import { GetAllToDoApplicationResponse } from "../../application/getAllToDo.application";
 import { ResponseBackEnd } from "@/usesCases/utils/schema/ResponseBackEnd";
 import { ToDo } from "../../domain/schema/ToDo";
 
-export const getAllToDosFetch = async (): Promise<CustomResponse<GetAllToDoApplicationResponse>> => {
+export const toggleToDoFetch = async (uuid: string): Promise<CustomResponse<ToggleToDoFetchResponse>> => {
 
 
     try {
 
+        // http://localhost:3000/todos/4d00f645-0d53-427a-a44f-283f20042f25/toggle
         const responseFetch = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/todos/all`,
+            `${process.env.NEXT_PUBLIC_API_URL}/todos/${uuid}/toggle`,
             {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -19,12 +20,12 @@ export const getAllToDosFetch = async (): Promise<CustomResponse<GetAllToDoAppli
         )
 
         const response = (await responseFetch.json()) as ResponseBackEnd
-        const toDos = response.data as ToDo[]
+        const toDos = response.data as ToDo
 
         return {
             status: "SUCCESS",
             data: {
-                toDos
+                toDoUpdated: toDos
             }
         }
 
@@ -32,9 +33,7 @@ export const getAllToDosFetch = async (): Promise<CustomResponse<GetAllToDoAppli
 
         return {
             status: "ERROR_SERVER",
-            data: {
-                toDos: []
-            }
+            data: {}
         }
 
     }

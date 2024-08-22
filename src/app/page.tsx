@@ -1,14 +1,14 @@
-import Image from "next/image";
+
+
 import { redirect } from "next/navigation";
 
 export default function Home() {
 
-
   // TODO
   // * check the session
   // * if existe,then go to '/login'. otherwise, go to '/toDo'
-
   redirect('/toDo')
+
 
   return (
     <>
