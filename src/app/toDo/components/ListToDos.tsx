@@ -1,7 +1,6 @@
 'use client';
 
-import { getAllToDo, GetAllToDoApplicationResponse } from "@/usesCases/ToDo/application/getAllToDo.application";
-import { useEffect, useState } from "react"
+import { GetAllToDoApplicationResponse } from "@/usesCases/ToDo/application/getAllToDo.application";
 import { ToDo } from "./ToDo";
 import { ToDo as ToDoModel } from "@/usesCases/ToDo/domain/schema/ToDo";
 
@@ -14,34 +13,6 @@ interface Props {
 }
 
 export const ListToDos = ({ className, todoSelected, isLoading, getAllToDoResponse, selectTodo }: Props) => {
-
-    // const [isLoading, setIsLoading] = useState<boolean>(false)
-    // const [getAllToDoResponse, setGetAllToDoResponse] = useState<GetAllToDoApplicationResponse | null>(null)
-
-
-    // const runGetAllToDo = async () => {
-
-    //     setIsLoading(true)
-    //     const response = await getAllToDo();
-    //     setIsLoading(false)
-
-    //     if (response.status !== "SUCCESS") return;
-
-    //     setGetAllToDoResponse(response.data)
-
-    // }
-
-    // useEffect(
-    //     () => {
-
-    //         (
-    //             async () => {
-    //                 await runGetAllToDo()
-    //             }
-    //         )();
-
-    //     }, [])
-
 
     return (
         <main className={`${className}`}>

@@ -15,8 +15,8 @@ export const ToDo = ({ todo, isSelected = false, wasClicked }: Props) => {
         <main
             onClick={wasClicked}
             className={
-                `h-min rounded-md px-8 py-4 flex flex-row justify-between cursor-pointer hover:scale-105
-                ${isSelected ? "scale-105" : "scale-100"}
+                `h-min rounded-md px-8 py-4 flex flex-row justify-between cursor-pointer hover:scale-110
+                ${isSelected ? "scale-110" : "scale-100"}
                 ${todo.completed ? STYLE_COMPLETE : STYLE_NOT_COMPLETE}
                 `
             }

@@ -65,7 +65,6 @@ export const ToDoDescription = ({ todo, wasUpdatedEvent }: Props) => {
                             </span>
 
 
-
                             <span className="flex flex-row justify-end mt-10 ">
                                 <ToggleButton
                                     todo={todo}

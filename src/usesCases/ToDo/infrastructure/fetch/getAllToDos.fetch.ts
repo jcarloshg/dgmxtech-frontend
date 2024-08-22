@@ -19,7 +19,7 @@ export const getAllToDosFetch = async (): Promise<CustomResponse<GetAllToDoAppli
         )
 
         const response = (await responseFetch.json()) as ResponseBackEnd
-        const toDos = response.data as ToDo[]
+        const toDos = (response.data as ToDo[])
 
         return {
             status: "SUCCESS",

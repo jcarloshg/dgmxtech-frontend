@@ -5,6 +5,7 @@ import { ListToDos } from "./components/ListToDos";
 import { ToDo as ToDoModel } from "@/usesCases/ToDo/domain/schema/ToDo";
 import { ToDoDescription } from "./components/ToDoDescription";
 import { getAllToDo, GetAllToDoApplicationResponse } from "@/usesCases/ToDo/application/getAllToDo.application";
+import { TodoFormCreate } from "./components/TodoForm";
 
 const KEY_TODO_UUID_SELECTED = 'TODO_UUID_SELECTED';
 
@@ -22,7 +23,8 @@ export default function Page() {
 
         if (response.status !== "SUCCESS") return;
 
-        setGetAllToDoResponse(response.data)
+        const todosSorted = response.data.toDos.sort(todo => todo.completed ? 1 : -1)
+        setGetAllToDoResponse({ ...response.data, toDos: todosSorted })
 
     }
 
@@ -42,6 +44,17 @@ export default function Page() {
         );
 
         setGetAllToDoResponse({ toDos: todosUpdated })
+    }
+
+    const runWasCreatedEvent = async (todo: ToDoModel): Promise<void> => {
+
+        // we can replace the ToDo or call the endpoint again
+        // await runGetAllToDo()
+
+        if (getAllToDoResponse == null) return
+        getAllToDoResponse.toDos.unshift(todo);
+        setGetAllToDoResponse({ ...getAllToDoResponse })
+
     }
 
     const runSetTodoSelected = (todo: ToDoModel | null) => {
@@ -75,6 +88,11 @@ export default function Page() {
         <main className="py-10 px-10 xl:px-40 border-red-950 border-2">
 
             <h1 className="font-bold text-2xl">The awesome ToDo list! 😎</h1>
+
+            <TodoFormCreate
+                className="w-full my-20 px-20"
+                wasCreatedEvent={runWasCreatedEvent}
+            />
 
             <div className="mt-5 w-full flex flex-row gap-16 px-20">
 

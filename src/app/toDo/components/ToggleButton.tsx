@@ -35,8 +35,8 @@ export const ToggleButton = ({ todo, wasUpdatedEvent }: Props) => {
                 }
             `
             }>
-            {/* {todo.completed ? "Mark incomplete" : 'Mark completed'} */}
-            Toggle
+            {todo.completed ? "Mark incomplete" : 'Mark completed'}
+            {/* Toggle */}
         </button >
     )
 }

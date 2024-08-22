@@ -10,7 +10,8 @@ export const PrimaryButton = ({ label, onClick, className, }: Props) => {
         <button
             onClick={onClick}
             className={`
-                w-min rounded-md bg-blue-950 py-1 px-2 text-white
+                h-min
+                text-1xl px-2 py-1 rounded-md border-2 bg-white border-gray-300 text-gray-600
                 ${className}`}
         >
             {label}
