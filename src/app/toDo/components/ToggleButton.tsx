@@ -30,12 +30,13 @@ export const ToggleButton = ({ todo, wasUpdatedEvent }: Props) => {
             className={
                 `text-1xl px-2 py-1 rounded-md border-2
             ${todo.completed
-                    ? "bg-white border-green-300 text-green-600 "
-                    : "bg-white border-red-300 text-red-600 "
+                    ? "bg-white border-gray-300 text-gray-600 "
+                    : "bg-white border-gray-300 text-gray-600 "
                 }
             `
             }>
-            {todo.completed ? "Mark incomplete" : 'Mark completed'}
+            {/* {todo.completed ? "Mark incomplete" : 'Mark completed'} */}
+            Toggle
         </button >
     )
 }

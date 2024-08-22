@@ -43,18 +43,18 @@ export const ToDoDescription = ({ todo, wasUpdatedEvent }: Props) => {
                                     <h3 className="font-semibold text-gray-600 text-2xl">{todo.title}</h3>
                                     <span className="text-gray-600 text-sm"><small>{todo.uuid}</small></span>
                                 </span>
-                                {/*
+
                                 <span
                                     className={
                                         `text-1xl px-2 py-1 rounded-md
                                         ${todo.completed
-                                            ? "bg-white border-green-300 text-green-600 border-2"
-                                            : "bg-white border-red-300 text-red-600 border-2"
+                                            ? "  text-green-600"
+                                            : "  text-red-600"
                                         }
                                         `
                                     }>
                                     {todo.completed ? "Completed ✅" : 'Not complete 🔴'}
-                                </span> */}
+                                </span>
 
                             </header>
 

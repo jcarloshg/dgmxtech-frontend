@@ -82,7 +82,7 @@ export default function Page() {
                     getAllToDoResponse &&
                     (
                         <ListToDos
-                            className="basis-1/2"
+                            className="basis-2/4"
                             todoSelected={todoSelected}
                             selectTodo={runSetTodoSelected}
                             getAllToDoResponse={getAllToDoResponse}
@@ -91,7 +91,7 @@ export default function Page() {
                     )
                 }
 
-                <div className="basis-1/2 ">
+                <div className="basis-2/4 ">
                     <ToDoDescription
                         todo={todoSelected}
                         wasUpdatedEvent={(todo) => runWasUpdatedEvent(todo)}
