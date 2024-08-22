@@ -100,7 +100,7 @@ export default function Page() {
 
     return (
 
-        <main className="py-10 px-10 xl:px-40 border-red-950 border-2">
+        <main className="py-10 px-10 xl:px-40 ">
 
             <h1 className="font-bold text-2xl">The awesome ToDo list! 😎</h1>
 

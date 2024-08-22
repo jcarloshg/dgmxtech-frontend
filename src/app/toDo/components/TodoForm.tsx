@@ -78,7 +78,7 @@ export const TodoFormCreate = ({ className, wasCreatedEvent }: Props) => {
             className='
     w-full shadow placeholder:text-lg placeholder:text-[#5C6274]
     ring-1
-    bg-[---color-light-gray] rounded-[0.625rem]
+    bg-white rounded-[0.625rem]
     pl-4 pr-12 pt-[0.81rem] pb-[1.19rem] mt-[0.5rem]
     box-border outline-none'
           />
@@ -100,7 +100,7 @@ export const TodoFormCreate = ({ className, wasCreatedEvent }: Props) => {
             className='
     w-full shadow placeholder:text-lg placeholder:text-[#5C6274]
     ring-1
-    bg-[---color-light-gray] rounded-[0.625rem]
+    bg-white rounded-[0.625rem]
     pl-4 pr-12 pt-[0.81rem] pb-[1.19rem] mt-[0.5rem]
     box-border outline-none'
           />
