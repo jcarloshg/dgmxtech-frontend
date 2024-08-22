@@ -1,4 +1,4 @@
-import { ListToDos } from "./components/ListTodos/ListToDos";
+import { ListToDos } from "./components/ListToDos";
 
 
 export default function Page() {
@@ -10,9 +10,9 @@ export default function Page() {
 
             <div className="mt-5 w-full flex flex-row gap-5">
 
-                <ListToDos className="basis-2/3" />
+                <ListToDos className="basis-1/2" />
 
-                <div className="basis-1/3 border-red-950 border-2">
+                <div className="basis-1/2 ">
                     <span>description</span>
                 </div>
 
@@ -22,3 +22,5 @@ export default function Page() {
         </main>
     )
 }
+
+//
