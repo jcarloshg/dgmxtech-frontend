@@ -15,6 +15,8 @@ Tu como usuario podrás :
 - Completar tareas
 - Eliminar tareas
 
+[front.webm](https://github.com/user-attachments/assets/521a9f8c-d0f7-4489-bad8-4818e5ce17f2)
+
 
 ## How to run
 
