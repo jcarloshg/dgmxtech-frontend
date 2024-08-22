@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/usesCases/infrastructure/FilesRepositoryAWSS3"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/usesCases/infrastructure/FilesRepositoryAWSS3", "src/app/toDo/components/ListTodos"],
   "exclude": ["node_modules"]
 }
