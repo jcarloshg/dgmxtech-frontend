@@ -2,13 +2,15 @@
 
 import { ToDo as ToDoModel } from "@/usesCases/ToDo/domain/schema/ToDo";
 import { ToggleButton } from "./ToggleButton";
+import { DeleteButton } from "./DeleteButton";
 
 export interface Props {
     todo: ToDoModel | null,
-    wasUpdatedEvent: (todo: ToDoModel) => Promise<void>
+    wasUpdatedEvent: (todo: ToDoModel) => Promise<void>,
+    wasDeletedEvent: (uuid: string) => Promise<void>,
 }
 
-export const ToDoDescription = ({ todo, wasUpdatedEvent }: Props) => {
+export const ToDoDescription = ({ todo, wasUpdatedEvent, wasDeletedEvent }: Props) => {
 
     const STYLE_COMPLETE = "bg-green-100 border-green-300 border-2";
     const STYLE_NOT_COMPLETE = "bg-red-100 border-red-300 border-2";
@@ -23,7 +25,7 @@ export const ToDoDescription = ({ todo, wasUpdatedEvent }: Props) => {
                     ?
                     (
                         <span className="h-60 flex justify-center items-center">
-                            Please, select a ToDo 👀
+                            👈 Select a ToDo
                         </span>
                     )
                     :
@@ -65,7 +67,13 @@ export const ToDoDescription = ({ todo, wasUpdatedEvent }: Props) => {
                             </span>
 
 
-                            <span className="flex flex-row justify-end mt-10 ">
+                            <span className="flex flex-row gap-5 justify-end mt-10 ">
+
+                                <DeleteButton
+                                    todo={todo}
+                                    wasDeletedEvent={wasDeletedEvent}
+                                />
+
                                 <ToggleButton
                                     todo={todo}
                                     wasUpdatedEvent={wasUpdatedEvent}

@@ -2,7 +2,6 @@
 
 import { toggleToDoApplication } from "@/usesCases/ToDo/application/toggleToDo.application";
 import { ToDo as ToDoModel } from "@/usesCases/ToDo/domain/schema/ToDo";
-import { useState } from "react";
 
 export interface Props {
     todo: ToDoModel,
@@ -10,8 +9,6 @@ export interface Props {
 }
 
 export const ToggleButton = ({ todo, wasUpdatedEvent }: Props) => {
-
-    // const [todoState, setTodoState] = useState(todo)
 
     const runToggleToDoApplication = async (uuid: string) => {
         const res = await toggleToDoApplication(uuid)

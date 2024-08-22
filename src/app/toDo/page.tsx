@@ -57,6 +57,21 @@ export default function Page() {
 
     }
 
+    const runWasDeletedEvent = async (uuid: string): Promise<void> => {
+
+        // we can replace the ToDo or call the endpoint again
+        // await runGetAllToDo()
+
+        if (getAllToDoResponse == null) return
+
+        const todosUpdated = getAllToDoResponse.toDos
+            .map(todoTemp => todoTemp.uuid === uuid ? undefined : todoTemp)
+            .filter(todoTemp => todoTemp !== undefined)
+
+        setGetAllToDoResponse({ toDos: todosUpdated })
+
+    }
+
     const runSetTodoSelected = (todo: ToDoModel | null) => {
         if (todo == null) return;
         localStorage.setItem(KEY_TODO_UUID_SELECTED, todo.uuid);
@@ -113,6 +128,7 @@ export default function Page() {
                     <ToDoDescription
                         todo={todoSelected}
                         wasUpdatedEvent={(todo) => runWasUpdatedEvent(todo)}
+                        wasDeletedEvent={(uuid) => runWasDeletedEvent(uuid)}
                     />
                 </div>
 
